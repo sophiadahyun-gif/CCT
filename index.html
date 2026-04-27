@@ -101,16 +101,21 @@
 <div class="card">
   <h2>Bookshelf</h2>
   <h3>A Polynomial of Degree Higher Than 2 Function</h3>
-  <!-- 클릭 시 이동을 위해 전체를 a 태그로 감싸거나, 박스 위에 덮습니다 -->
-  <div class="iframe-box" style="position: relative;">
-    <!-- 1. 데스모스 그래프 -->
-    <iframe src="https://desmos.com" width="100%" height="100%" style="border:none; border-radius: 10px;" frameborder=0></iframe>
+  <div class="iframe-box" style="position: relative; padding: 0; overflow: hidden; display: block;">
+    <!-- 그래프: width/height를 100%로 강제 고정 -->
+    <iframe src="https://desmos.com" 
+            style="width: 100%; height: 100%; border: none; display: block;" 
+            frameborder="0"></iframe>
     
-    <!-- 2. 클릭 시 이동을 위한 투명한 레이어 -->
-    <a href="https://desmos.com" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;"></a>
+    <!-- 클릭 레이어: 박스 전체를 덮음 -->
+    <a href="https://desmos.com" 
+       target="_blank" 
+       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; cursor: pointer; background: rgba(0,0,0,0);">
+    </a>
   </div>
-  <p>그래프를 클릭하면 새 탭에서 데스모스 계산기가 열립니다.</p>
+  <p>그래프를 클릭하면 원본 페이지로 이동합니다.</p>
 </div>
+
 
 
     <!-- CARD 2 -->
