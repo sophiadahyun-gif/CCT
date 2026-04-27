@@ -101,20 +101,23 @@
 <div class="card">
   <h2>Bookshelf</h2>
   <h3>A Polynomial of Degree Higher Than 2 Function</h3>
-  <div class="iframe-box" style="position: relative; padding: 0; overflow: hidden; display: block;">
-    <!-- 그래프: width/height를 100%로 강제 고정 -->
-    <iframe src="https://desmos.com" 
-            style="width: 100%; height: 100%; border: none; display: block;" 
+  <div class="iframe-box" style="position: relative; padding: 0; overflow: hidden;">
+    
+    <!-- [1. 보여주기] 카드 안에 그래프를 띄우는 코드 (준비하신 코드 넣기) -->
+    <iframe src="https://www.desmos.com/calculator/sbzazg7nh8?embed" 
+            style="width: 100%; height: 100%; border: none;" 
             frameborder="0"></iframe>
     
-    <!-- 클릭 레이어: 박스 전체를 덮음 -->
-    <a href="https://desmos.com" 
+    <!-- [2. 이동하기] 클릭 시 본인 그래프 페이지로 이동 (뒤에 ?embed만 뺐어요!) -->
+    <a href="https://www.desmos.com/calculator/sbzazg7nh8" 
        target="_blank" 
-       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; cursor: pointer; background: rgba(0,0,0,0);">
+       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; background: rgba(0,0,0,0); cursor: pointer;">
     </a>
+
   </div>
-  <p>그래프를 클릭하면 원본 페이지로 이동합니다.</p>
+  <p>그래프를 클릭하면 본인의 데스모스 수식 페이지가 새 탭에서 열립니다.</p>
 </div>
+
 
 
 
