@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daily Life in Sunway</title>
 
-  <sty le>
+  <style> /* <-- 여기 공백 있던거 고쳤어요! */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -13,11 +13,11 @@
       font-family: "Segoe UI", Arial, sans-serif;
     }
 
- body {
-  background-color: #1f2f4a; /* 클래식 네이비 */
-  padding: 30px 15px;
-  color: #eef3fb;
-}
+    body {
+      background-color: #1f2f4a;
+      padding: 30px 15px;
+      color: #eef3fb;
+    }
 
     h1 {
       text-align: center;
@@ -70,8 +70,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #6b7a99;
       margin-bottom: 15px;
+      position: relative; /* 박스 기준점 */
+      overflow: hidden;
     }
 
     .card p {
@@ -81,13 +82,8 @@
     }
 
     @media (max-width: 500px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      .iframe-box {
-        height: 170px;
-      }
+      h1 { font-size: 2rem; }
+      .iframe-box { height: 170px; }
     }
   </style>
 </head>
@@ -97,106 +93,34 @@
   <h1>Daily Life in Sunway</h1>
 
   <div class="grid">
-<!-- CARD 1 -->
-<div class="card">
-  <h2>Bookshelf</h2>
-  <h3>A Polynomial of Degree Higher Than 2 Function</h3>
-  <div class="iframe-box" style="position: relative; padding: 0 !important; overflow: hidden !important;">
-    <!-- 보여주는 용도 -->
-    <iframe src="https://desmos.com" 
-            style="width: 100% !important; height: 100% !important; border: none !important;" 
-            frameborder="0"></iframe>
-    
-    <!-- 클릭 시 이동 용도 -->
-    <a href="https://desmos.com" 
-       target="_blank" 
-       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; background: transparent; display: block;">
-    </a>
-  </div>
-  <p>그래프를 클릭하면 본인의 데스모스 페이지가 열립니다.</p>
-</div>
-
-    
-    <!-- CARD 2 -->
+    <!-- CARD 1 -->
     <div class="card">
       <h2>Bookshelf</h2>
       <h3>A Polynomial of Degree Higher Than 2 Function</h3>
       <div class="iframe-box">
-        <iframe src="" width="100%" height="100%" style="border:none;"></iframe>
+        <!-- 1. 원하셨던 아이프레임 링크 (너비/높이 100%로 카드에 맞춤) -->
+        <iframe src="https://www.desmos.com/calculator/sbzazg7nh8?embed" 
+                style="width: 100%; height: 100%; border: none;" 
+                frameborder="0"></iframe>
+        
+        <!-- 2. 클릭하면 내 그래프로 이동하는 투명 막 (v=1은 캐시 방지용) -->
+        <a href="https://www.desmos.com/calculator/sbzazg7nh8" 
+           target="_blank" 
+           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: transparent;"></a>
       </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mathematical curves appear naturally in everyday structures.</p>
+      <p>그래프를 클릭하면 본인의 데스모스 페이지가 새 창에서 열립니다.</p>
     </div>
 
-    <!-- CARD 3 -->
-    <div class="card">
-      <h2>Bookshelf</h2>
-      <h3>A Polynomial of Degree Higher Than 2 Function</h3>
-      <div class="iframe-box">
-        <iframe src="" width="100%" height="100%" style="border:none;"></iframe>
-      </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mathematical curves appear naturally in everyday structures.</p>
-    </div>
-
-    <!-- CARD 4 -->
-    <div class="card">
-      <h2>Bookshelf</h2>
-      <h3>A Polynomial of Degree Higher Than 2 Function</h3>
-      <div class="iframe-box">
-        <iframe src="" width="100%" height="100%" style="border:none;"></iframe>
-      </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mathematical curves appear naturally in everyday structures.</p>
-    </div>
-
-    <!-- CARD 5 -->
-    <div class="card">
-      <h2>Bookshelf</h2>
-      <h3>A Polynomial of Degree Higher Than 2 Function</h3>
-      <div class="iframe-box">
-        <iframe src="" width="100%" height="100%" style="border:none;"></iframe>
-      </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mathematical curves appear naturally in everyday structures.</p>
-    </div>
-
-    <!-- CARD 6 -->
-    <div class="card">
-      <h2>Bookshelf</h2>
-      <h3>A Polynomial of Degree Higher Than 2 Function</h3>
-      <div class="iframe-box">
-        <iframe src="" width="100%" height="100%" style="border:none;"></iframe>
-      </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mathematical curves appear naturally in everyday structures.</p>
-    </div>
-
-    <!-- CARD 7 -->
-    <div class="card">
-      <h2>Bookshelf</h2>
-      <h3>A Polynomial of Degree Higher Than 2 Function</h3>
-      <div class="iframe-box">
-        <iframe src="" width="100%" height="100%" style="border:none;"></iframe>
-      </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mathematical curves appear naturally in everyday structures.</p>
-    </div>
-
-    <!-- CARD 8 -->
-    <div class="card">
-      <h2>Bookshelf</h2>
-      <h3>A Polynomial of Degree Higher Than 2 Function</h3>
-      <div class="iframe-box">
-        <iframe src="" width="100%" height="100%" style="border:none;"></iframe>
-      </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mathematical curves appear naturally in everyday structures.</p>
-    </div>
-
-    <!-- CARD 9 -->
-    <div class="card">
-      <h2>Bookshelf</h2>
-      <h3>A Polynomial of Degree Higher Than 2 Function</h3>
-      <div class="iframe-box">
-        <iframe src="" width="100%" height="100%" style="border:none;"></iframe>
-      </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mathematical curves appear naturally in everyday structures.</p>
-    </div>
-
+    <!-- 나머지 카드들은 placeholder 상태입니다 (CARD 2 ~ 9) -->
+    <!-- 카드 하나가 성공하면 아래 카드들도 같은 방식으로 복사해서 링크만 바꾸세요! -->
+    <div class="card"><h2>Bookshelf</h2><h3>Sample Card</h3><div class="iframe-box"><p style="color:#6b7a99">준비 중</p></div><p>내용을 입력하세요.</p></div>
+    <div class="card"><h2>Bookshelf</h2><h3>Sample Card</h3><div class="iframe-box"><p style="color:#6b7a99">준비 중</p></div><p>내용을 입력하세요.</p></div>
+    <div class="card"><h2>Bookshelf</h2><h3>Sample Card</h3><div class="iframe-box"><p style="color:#6b7a99">준비 중</p></div><p>내용을 입력하세요.</p></div>
+    <div class="card"><h2>Bookshelf</h2><h3>Sample Card</h3><div class="iframe-box"><p style="color:#6b7a99">준비 중</p></div><p>내용을 입력하세요.</p></div>
+    <div class="card"><h2>Bookshelf</h2><h3>Sample Card</h3><div class="iframe-box"><p style="color:#6b7a99">준비 중</p></div><p>내용을 입력하세요.</p></div>
+    <div class="card"><h2>Bookshelf</h2><h3>Sample Card</h3><div class="iframe-box"><p style="color:#6b7a99">준비 중</p></div><p>내용을 입력하세요.</p></div>
+    <div class="card"><h2>Bookshelf</h2><h3>Sample Card</h3><div class="iframe-box"><p style="color:#6b7a99">준비 중</p></div><p>내용을 입력하세요.</p></div>
+    <div class="card"><h2>Bookshelf</h2><h3>Sample Card</h3><div class="iframe-box"><p style="color:#6b7a99">준비 중</p></div><p>내용을 입력하세요.</p></div>
   </div>
 
 </body>
