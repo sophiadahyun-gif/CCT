@@ -26,22 +26,37 @@
       color: #ffffff;
     }
 
-    .grid {
-      max-width: 1200px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
+.grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  /* 카드 크기를 유연하게 잡고, 한 줄의 카드 높이를 통일시킵니다 */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: 1fr; /* 줄 전체의 높이를 가장 긴 카드에 맞춤 */
+  gap: 25px;
+  align-items: start; /* 내용이 적어도 카드가 위쪽으로 붙게 함 */
+}
 
-    .card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 22px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      border-top: 6px solid #ffb703;
-    }
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-top: 6px solid #ffb703;
+  
+  /* 카드 내부 정렬 */
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* grid-auto-rows와 연동되어 높이 통일 */
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.6; /* 줄 간격을 살짝 넓혀 가독성 향상 */
+  color: #333;
+  word-break: keep-all; /* 한글/영문 단어가 잘리지 않게 함 */
+}
 
     .card:hover {
       transform: translateY(-6px);
