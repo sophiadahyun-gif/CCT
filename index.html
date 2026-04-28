@@ -28,12 +28,11 @@
 
 .grid {
   max-width: 1200px;
-  margin: auto;
-  display: grid;
-  /* minmax를 280px로 살짝 줄여서 공간을 더 확보합니다 */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px; /* 카드 사이 간격을 좀 더 넓혔어요 */
-  /* grid-auto-rows: 1fr; 를 삭제했습니다 (겹침의 주범) */
+  margin: 40px auto;
+  display: flex; /* grid 대신 flex로 변경해서 겹침 방지 */
+  flex-wrap: wrap; /* 카드가 많으면 아래로 자연스럽게 내려감 */
+  gap: 25px;
+  justify-content: center;
 }
 
 .card {
@@ -44,15 +43,28 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   border-top: 6px solid #ffb703;
   
+  /* 카드 너비 설정 (한 줄에 3개 정도 나오게) */
+  width: calc(33.333% - 20px); 
+  min-width: 300px; /* 모바일에서도 안 깨지게 */
+  
   display: flex;
   flex-direction: column;
-  height: auto; /* 높이가 내용에 따라 자동으로 늘어나게 설정 */
+  height: fit-content; /* 내용물만큼만 딱 늘어나게 함 */
 }
 
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
 }
+
+/* 모바일 대응 */
+@media (max-width: 900px) {
+  .card { width: calc(50% - 20px); }
+}
+@media (max-width: 600px) {
+  .card { width: 100%; }
+}
+
 
     .card h2 {
       font-size: 1.2rem;
