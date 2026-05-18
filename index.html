@@ -8,35 +8,13 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", Arial, sans-serif; }
     body { background-color: #1f2f4a; padding: 30px 15px; color: #eef3fb; }
     h1 { text-align: center; font-size: 2.6rem; margin-bottom: 40px; color: #ffffff; }
-    
-    .grid {
-      max-width: 1200px; margin: 40px auto;
-      display: grid; 
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-      gap: 30px;
-      align-items: start;
-    }
-    
-    .card {
-      background: #ffffff; border-radius: 16px; padding: 22px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); transition: transform 0.25s ease;
-      border-top: 6px solid #ffb703; display: flex; flex-direction: column; 
-      height: auto;
-    }
-    
+    .grid { max-width: 1200px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; align-items: start; }
+    .card { background: #ffffff; border-radius: 16px; padding: 22px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); transition: transform 0.25s ease; border-top: 6px solid #ffb703; display: flex; flex-direction: column; height: auto; }
     .card:hover { transform: translateY(-6px); }
     .card h2 { font-size: 1.2rem; color: #0b3c78; margin-bottom: 8px; }
     .card h3 { font-size: 0.95rem; font-weight: 500; color: #ff8c00; margin-bottom: 15px; }
-    
-    .iframe-box {
-      flex-shrink: 0; width: 100%; height: 200px; border-radius: 12px;
-      background: #eaf2ff; position: relative; overflow: hidden; margin-bottom: 15px;
-    }
-    
-    .iframe-link {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: transparent;
-    }
-    
+    .iframe-box { flex-shrink: 0; width: 100%; height: 200px; border-radius: 12px; background: #eaf2ff; position: relative; overflow: hidden; margin-bottom: 15px; }
+    .iframe-link { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: transparent; }
     .card p { font-size: 0.95rem; line-height: 1.6; color: #333; overflow-wrap: break-word; }
     .math-text { white-space: nowrap; font-weight: bold; color: #0b3c78; }
     @media (max-width: 500px) { h1 { font-size: 2rem; } .grid { grid-template-columns: 1fr; } }
@@ -122,13 +100,11 @@
         From observing the orientation of the curve in my image, I noticed that the graph was decreasing from left to right rather than increasing. This indicated a reflection across the x-axis. Therefore, I modified the function to <span class="math-text">y = -1/x</span> to match the direction of the curve.<br><br>
         Initially, I found it difficult to determine the correct vertical stretch or compression factor because the graph in the image was positioned away from the origin, making it challenging to accurately compare the steepness. To address this, I temporarily focused on aligning the asymptotes first so I could analyse the shape without the added complexity of translations. By comparing the curvature of the graph with the traffic signal post, I determined that a vertical compression was needed rather than a stretch, and refined the value through observation until the curve closely matched the image.<br><br>
         Once the shape was established, I returned the graph to its original position by applying translations. I shifted the graph horizontally to align the vertical asymptote with the position where the traffic signal post begins in the image and then applied a vertical translation so the curve passed through key points on the traffic light structure. This resulted in the function <span class="math-text">y = -0.2/(x-1.9) + 7.7</span> which closely models the shape of the traffic signal post in the photograph.<br><br>
-
         <strong>Summary of transformation:</strong><br>
         - Reflection across the x-axis: <span class="math-text">1/x &rarr; -1/x</span><br>
         - Vertical compression of factor 0.2: <span class="math-text">-1/x &rarr; -0.2/x</span><br>
         - Horizontal translation of 1.9 units to the right: <span class="math-text">-0.2/x &rarr; -0.2/(x-1.9)</span><br>
         - Vertical translation of 7.7 units upward: <span class="math-text">-0.2/(x-1.9) &rarr; -0.2/(x-1.9)+7.7</span><br><br>
-
         <strong>Domain & Range:</strong><br>
         <strong>Domain:</strong> The domain of my function is <span class="math-text">D:{x&isin;&Real;&nbsp;|&nbsp;1.933 &le; x &le; 7.8}</span>. I limited the domain to the portion of the traffic signal post that was visible in the photograph. In hindsight, I would have taken the picture so that it included more of the curve, allowing me to model a larger section of the structure rather than only the visible part. As a result, my model is only valid for the section of the traffic signal post captured in the image. (The parent function <span class="math-text">y = 1/x</span> has a domain of <span class="math-text">D:{x&isin;&Real;&nbsp;|&nbsp;x &ne; 0}</span> and a range of <span class="math-text">R:{y&isin;&Real;&nbsp;|&nbsp;y &ne; 0}</span>).<br><br>
         <strong>Range:</strong> Transformed function contains asymptotes at vertical <span class="math-text">x = 1.9</span> and horizontal <span class="math-text">y = 7.7</span>. Since I restricted the domain to a small interval entirely to the right of the vertical asymptote, the discontinuity is not visible in my model. Since the function is continuous on the restricted interval, the range can be determined by evaluating the function at the endpoints of the domain. By evaluating the function near <span class="math-text">x = 1.933</span> and at <span class="math-text">x = 7.8</span>, I obtained approximate output values between 1.64 and 7.67. Therefore, the range of the function is approximately <span class="math-text">R:{y&isin;&Real;&nbsp;|&nbsp;1.64 &le; y &le; 7.67}</span>.
