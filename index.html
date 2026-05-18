@@ -14,36 +14,32 @@
       display: grid; 
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
       gap: 30px;
-      align-items: start;
+      align-items: start; /* [수정] 카드가 내용물 크기에 맞춰 늘어나며 절대 겹치지 않게 함 */
     }
     
     .card {
       background: #ffffff; border-radius: 16px; padding: 22px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); transition: transform 0.25s ease;
       border-top: 6px solid #ffb703; display: flex; flex-direction: column; 
-      height: auto;
+      height: auto; /* [수정] 100% 대신 auto로 변경하여 텍스트가 길어져도 아래 카드를 정상적으로 밀어내게 함 */
     }
     
     .card:hover { transform: translateY(-6px); }
-    .card h2 { font-size: 1.2rem; color: #0b3c78; margin-bottom: 8px; line-height: 1.4; }
+    .card h2 { font-size: 1.2rem; color: #0b3c78; margin-bottom: 8px; }
     .card h3 { font-size: 0.95rem; font-weight: 500; color: #ff8c00; margin-bottom: 15px; }
     
     .iframe-box {
       flex-shrink: 0; width: 100%; height: 200px; border-radius: 12px;
       background: #eaf2ff; position: relative; overflow: hidden; margin-bottom: 15px;
-      /* 빈 박스일 때 내부 안내 문구를 중앙 정렬하기 위한 속성 */
-      display: flex; align-items: center; justify-content: center; color: #7ba3e0; font-size: 0.9rem;
     }
     
+    /* 이 클래스가 있어야 아이프레임 전체를 클릭할 수 있습니다 */
     .iframe-link {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: transparent;
     }
     
     .card p { font-size: 0.95rem; line-height: 1.6; color: #333; overflow-wrap: break-word; }
-    
-    /* 수학 기호 스타일 개선 */
-    .math-text { white-space: nowrap; font-weight: bold; color: #0b3c78; font-family: "Times New Roman", Times, serif; font-style: italic; }
-    
+    .math-text { white-space: nowrap; font-weight: bold; color: #0b3c78; }
     @media (max-width: 500px) { h1 { font-size: 2rem; } .grid { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -67,31 +63,37 @@
         - The standard sine graph only moves between 1 and -1. However, the actual ripples of the noodle were much taller. To match the thickness and the curves in the photo, I increased the amplitude to 1.77.<br>
         - To align the graph with the actual flow of the noodle starting point, I multiplied the x-coefficient by -1. This reflects the graph across the y-axis.<br><br>
         <strong>Domain and Range:</strong><br>
-        The domain is <span class="math-text">{x∈R∣2 < x < 15}</span>. The range is approximately <span class="math-text">R:{y∈R∣-6.47 < y < -2.93}</span>.
+        The domain is <span class="math-text">{x∈ℝ∣2 &lt; x &lt; 15}</span>. The range is approximately <span class="math-text">R:{y∈ℝ∣-6.47 &lt; y &lt; -2.93}</span>.
       </p>
     </div>
 
-    <!-- CARD 2: Sculpture -->
+        <!-- CARD 2: Sculpture -->
     <div class="card">
       <h2>Sculpture-secant function</h2>
       <h3>A Secant function</h3>
       <div class="iframe-box">
+        <!-- 카드 크기에 맞춘 데스모스 그래프 -->
         <iframe src="https://www.desmos.com/calculator/v9lpukqage?embed" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
+        <!-- 클릭 시 원본 페이지로 이동하는 투명 막 -->
         <a href="https://www.desmos.com/calculator/v9lpukqage" target="_blank" class="iframe-link"></a>
       </div>
       <p>
         <strong>Parent Function:</strong> <span class="math-text">y = secx</span><br><br>
+
         <strong>Transformation:</strong><br>
         - This resulted in the function <span class="math-text">y = 1.77(sec(-0.5(x-7)) - 0.8)</span> which closely models the U-shape in the photograph. Compared to the parent function, this graph has been vertically stretched by a factor of 1.77.<br>
         - It is horizontally stretched by a factor of 2 (due to the 0.5 coefficient) and reflected across the y-axis (due to the negative sign).<br>
         - Finally, it is translated 7 units to the right and shifted down by 1.416 units (1.77 * -0.8).<br><br>
+
         <strong>Summary of Transformation:</strong><br>
         <span class="math-text">y = secx</span><br><br>
+        
         <strong>Domain and Range:</strong><br>
-        <strong>Domain:</strong> The domain of my function is <span class="math-text">{x∈R∣7-π < x < 7+π}</span>, (which simplifies from <span class="math-text">-π/2 < -0.5(x-7) < π/2</span>). I restricted the model to this interval to capture exactly one continuous U-shaped branch of the secant function. Outside of this interval, the graph would create repeated branches and vertical asymptotes that do not exist on the real sculpture.<br>
-        <strong>Range:</strong> By evaluating the function at the lowest point of the curve (x = 7), I obtained the minimum y-value of 0.354 since <span class="math-text">1.77(sec(0) - 0.8) = 1.77(1 - 0.8) = 0.354</span>. As the graph approaches the boundaries of the domain, the y-values increase infinitely toward positive infinity. Therefore, the theoretical range is <span class="math-text">{y∈R∣y ≥ 0.354}</span>.
+        <strong>Domain:</strong> The domain of my function is <span class="math-text">{x∈ℝ∣7-π &lt; x &lt; 7+π}</span>, (which simplifies from <span class="math-text">-π/2 &lt; -0.5(x-7) &lt; π/2</span>). I restricted the model to this interval to capture exactly one continuous U-shaped branch of the secant function. Outside of this interval, the graph would create repeated branches and vertical asymptotes that do not exist on the real sculpture.<br>
+        <strong>Range:</strong> By evaluating the function at the lowest point of the curve (x = 7), I obtained the minimum y-value of 0.354 since <span class="math-text">1.77(sec(0) - 0.8) = 1.77(1 - 0.8) = 0.354</span>. As the graph approaches the boundaries of the domain, the y-values increase infinitely toward positive infinity. Therefore, the theoretical range is <span class="math-text">{y∈ℝ∣y ≥ 0.354}</span>.
       </p>
     </div>
+
 
     <!-- CARD 3: Library -->
     <div class="card">
@@ -104,23 +106,24 @@
       <p>Content goes here.</p>
     </div>
 
-    <!-- CARD 4: Traffic Signal -->
+    <!-- CARD 4: Library 4 [수정완료] -->
     <div class="card">
-      <h2>Height of the traffic signal post as a function of the horizontal distance from the car front tyre</h2>
-      <h3>Placeholder</h3>
+      <h2>Height of the traffic signal post as a function of the horizontal distance from the car front tyre
+      </h2><h3>Placeholder</h3>
       <div class="iframe-box">
+        <!-- 너비/높이를 100%로 맞추고 클릭용 투명 막(a 태그)을 추가했습니다 -->
         <iframe src="https://www.desmos.com/calculator/x482850i1h?embed" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
         <a href="https://www.desmos.com/calculator/x482850i1h" target="_blank" class="iframe-link"></a>
       </div>
       <p>Content goes here.</p>
     </div>
           
-    <!-- 나머지 5개 카드 (템플릿 통일 및 대기 문구 추가) -->
-    <div class="card"><h2>Library 5</h2><h3>Placeholder</h3><div class="iframe-box">Graph Placeholder</div><p>Content goes here.</p></div>
-    <div class="card"><h2>Library 6</h2><h3>Placeholder</h3><div class="iframe-box">Graph Placeholder</div><p>Content goes here.</p></div>
-    <div class="card"><h2>Library 7</h2><h3>Placeholder</h3><div class="iframe-box">Graph Placeholder</div><p>Content goes here.</p></div>
-    <div class="card"><h2>Library 8</h2><h3>Placeholder</h3><div class="iframe-box">Graph Placeholder</div><p>Content goes here.</p></div>
-    <div class="card"><h2>Library 9</h2><h3>Placeholder</h3><div class="iframe-box">Graph Placeholder</div><p>Content goes here.</p></div>
+    <!-- 나머지 5개 카드 (동일 템플릿 적용) -->
+    <div class="card"><h2>Library 5</h2><h3>Placeholder</h3><div class="iframe-box"></div><p>Content goes here.</p></div>
+    <div class="card"><h2>Library 6</h2><h3>Placeholder</h3><div class="iframe-box"></div><p>Content goes here.</p></div>
+    <div class="card"><h2>Library 7</h2><h3>Placeholder</h3><div class="iframe-box"></div><p>Content goes here.</p></div>
+    <div class="card"><h2>Library 8</h2><h3>Placeholder</h3><div class="iframe-box"></div><p>Content goes here.</p></div>
+    <div class="card"><h2>Library 9</h2><h3>Placeholder</h3><div class="iframe-box"></div><p>Content goes here.</p></div>
   </div>
 
 </body>
