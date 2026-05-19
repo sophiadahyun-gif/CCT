@@ -4,25 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daily Life in Sunway</title>
-  <style>
+   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", Arial, sans-serif; }
     body { background-color: #1f2f4a; padding: 30px 15px; color: #eef3fb; }
     h1 { text-align: center; font-size: 2.6rem; margin-bottom: 40px; color: #ffffff; }
     
-    /* [수정] 빈 공간 생김 방지를 위해 grid 구조 및 정렬 최적화 */
+    /* 카드가 큼직하게 나오도록 최소 너비를 450px로 변경 */
     .grid { 
-      max-width: 1200px; 
+      max-width: 1400px; 
       margin: 40px auto; 
       display: grid; 
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
-      gap: 30px; 
+      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); 
+      gap: 35px; 
+      align-items: start;
     }
     
-    /* [수정] height: auto로 텍스트 길이에 맞춰 깔끔하게 늘어나도록 수정 */
     .card { 
       background: #ffffff; 
       border-radius: 16px; 
-      padding: 24px; 
+      padding: 26px; 
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); 
       transition: transform 0.25s ease; 
       border-top: 6px solid #ffb703; 
@@ -31,43 +31,78 @@
       height: auto; 
     }
     .card:hover { transform: translateY(-6px); }
-    .card h2 { font-size: 1.25rem; color: #0b3c78; margin-bottom: 8px; }
-    .card h3 { font-size: 0.95rem; font-weight: 500; color: #ff8c00; margin-bottom: 15px; }
+    .card h2 { font-size: 1.35rem; color: #0b3c78; margin-bottom: 8px; }
+    .card h3 { font-size: 1rem; font-weight: 500; color: #ff8c00; margin-bottom: 15px; }
     
-    .iframe-box { flex-shrink: 0; width: 100%; height: 200px; border-radius: 12px; background: #eaf2ff; position: relative; overflow: hidden; margin-bottom: 15px; }
+    /* 아이프레임 박스 크기 및 고정 방식 수정 */
+    .iframe-box { 
+      flex-shrink: 0; 
+      width: 100%; 
+      height: 300px; /* 그래프가 더 잘 보이게 높이도 키웠습니다 */
+      border-radius: 12px; 
+      background: #eaf2ff; 
+      position: relative; 
+      overflow: hidden; 
+      margin-bottom: 20px; 
+    }
     .iframe-link { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: transparent; }
     .card p { font-size: 0.95rem; line-height: 1.6; color: #333; overflow-wrap: break-word; }
     
-    /* [수정] 수식이 부드럽게 줄바꿈되면서 가독성을 유지하도록 스타일 변경 */
     .math-text { font-weight: bold; color: #0b3c78; word-break: break-all; }
-    
-    /* [추가] 아까 좋아하셨던 깔끔한 밑줄 전용 스타일 */
     .ul-title { text-decoration: underline; text-underline-offset: 3px; font-weight: bold; color: #0b3c78; }
     
-    @media (max-width: 500px) { h1 { font-size: 2rem; } .grid { grid-template-columns: 1fr; } }
+    /* 모바일 화면 대응 */
+    @media (max-width: 600px) { 
+      h1 { font-size: 2rem; } 
+      .grid { grid-template-columns: 1fr; } 
+      .iframe-box { height: 220px; }
+    }
   </style>
-</head>
-<body>
+
 
   <h1>Daily Life in Sunway</h1>
 
   <div class="grid">
-    <!-- CARD 1: Ramyeon -->
+         <!-- CARD 1: Ramyeon -->
     <div class="card">
       <h2>Ramyeon-sinusoidal function</h2>
       <h3>A Sinusoidal function</h3>
       <div class="iframe-box">
+        <!-- 오작동하던 아이프레임 링크 완벽 복구 -->
         <iframe src="https://www.desmos.com/calculator/sbzazg7nh8?embed" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
         <a href="https://www.desmos.com/calculator/sbzazg7nh8" target="_blank" class="iframe-link"></a>
       </div>
       <p>
-        <strong>Transformation:</strong><br>
-        I chose this photo because I often eat ramyeon as lunch near the Sunway’s convenience store. To model the sign appearing in this photo, I started to walk around the campus and observe the small things. Then I realized that the ramyeon noodle looks similar to the sinusoidal faction so I selected the parent function <span class="math-text">y=sinx</span> as a starting point.<br><br>
-        - To model the repetitive, wavy pattern of the ramen noodles, I selected the most basic wave function, <span class="math-text">y = sinx</span>, as my parent function.<br>
-        - The standard sine graph only moves between 1 and -1. However, the actual ripples of the noodle were much taller. To match the thickness and the curves in the photo, I increased the amplitude to 1.77.<br>
-        - To align the graph with the actual flow of the noodle starting point, I multiplied the x-coefficient by -1. This reflects the graph across the y-axis.<br><br>
-        <strong>Domain and Range:</strong><br>
-        The domain is <span class="math-text">{x&isin;&Real;&nbsp;|&nbsp;2 &lt; x &lt; 15}</span>. The range is approximately <span class="math-text">R:{y&isin;&Real;&nbsp;|&nbsp;-6.47 &lt; y &lt; -2.93}</span>.
+        <strong>Choice of Image & Parent Function:</strong><br>
+        I selected a photograph of ramyeon noodles because I frequently eat them for lunch near the Sunway convenience store. To find a real-world object to model, I observed small details around the campus. I noticed that the repetitive, wavy patterns of the noodles look remarkably similar to a periodic wave. Therefore, I chose the standard sine function, <span class="math-text">y=sin(x)</span>, as my parent function to capture this continuous, undulating shape.<br><br>
+        
+        <strong>Equation and Order of Transformations:</strong><br>
+        To precisely align the parent function with the actual flow, curves, and position of the noodle in the photograph, I applied transformations in the following mathematical order.<br><br>
+        
+        <span class="ul-title">Vertical Stretch (Amplitude):</span> The standard sine graph only oscillates between 1 and -1. Because the actual ripples of the noodle are much taller, I increased the amplitude by multiplying the function by a factor of 1.77.<br><br>
+        
+        <span class="ul-title">Horizontal Reflection:</span> To match the starting direction and the 'ups and downs' of the wave perfectly with the photo, I multiplied the x-coefficient by -1. This reflects the graph horizontally across the y-axis.<br><br>
+        
+        <span class="ul-title">Horizontal Phase Shift:</span> I translated the graph 0.9 units to the right to align the starting point of the wave with the visible noodle.<br><br>
+        
+        <span class="ul-title">Vertical Translation:</span> I shifted the entire graph 4.7 units down to position it correctly over the image axes.<br><br>
+        
+        <strong>Final Transformed Equation:</strong><br>
+        <span class="math-text" style="font-size: 1.05rem; display: inline-block; margin: 5px 0;">y = 1.77sin(-(x - 0.9)) - 4.7</span><br><br>
+        
+        <strong>Domain and Range Analysis:</strong><br>
+        <strong>Domain:</strong> <span class="math-text">D = {x∈ℝ│2 ≤ x ≤ 15}</span><br>
+        I restricted the model strictly to the interval <span class="math-text">2 ≤ x ≤ 15</span> because this represents the exact section of the noodle that is visible in the photograph. Outside of these endpoints, the graph would extend into empty space where no noodles are shown, rendering the model unrealistic.<br><br>
+        
+        <strong>Range:</strong> <span class="math-text">R = {y∈ℝ│-6.47 ≤ y ≤ -2.93}</span><br>
+        Since a sinusoidal function is continuous and oscillates symmetrically around its midline, its behavior and range are determined entirely by its vertical parameters rather than its domain endpoints. The vertical translation shifts the midline of the wave down to <span class="math-text">y = -4.7</span>. The vertical stretch extends the peaks and troughs of the wave 1.77 units above and below this midline. Therefore, the minimum value is calculated as <span class="math-text">-4.7 - 1.77 = -6.47</span>, and the maximum value is <span class="math-text">-4.7 + 1.77 = -2.93</span>.<br><br>
+
+        <strong>Comparison with Parent Function:</strong><br>
+        Compared to the parent function <span class="math-text">y=sin(x)</span>—which has an amplitude of 1, a period of 2π, a midline at y=0, and passes through the origin (0,0) moving upwards—this transformed model is vertically stretched, flows in the opposite horizontal direction due to the y-axis reflection, and has been shifted both horizontally and vertically into the fourth quadrant to accurately mimic the physical structure of the ramyeon.
+      </p>
+    </div>
+
+
       </p>
     </div>
 
