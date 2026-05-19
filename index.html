@@ -4,20 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daily Life in Sunway</title>
-     <style>
+   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", Arial, sans-serif; }
     body { background-color: #1f2f4a; padding: 30px 15px; color: #eef3fb; }
     h1 { text-align: center; font-size: 2.6rem; margin-bottom: 40px; color: #ffffff; }
     
-    /* 🛠️ SWITCHED FROM GRID TO COLUMNS TO PREVENT CARDS FROM DROPPING DOWN */
+    /* 🛠️ 무조건 가로로 3개씩 나란히 정렬되도록 수정한 부분 */
     .grid { 
       max-width: 1400px; 
       margin: 40px auto; 
-      column-count: 3; /* Displays 3 columns on desktop */
-      column-gap: 30px;
+      display: flex;       /* 가로 배치 */
+      flex-wrap: wrap;     /* 카드가 많아지면 다음 줄로 자연스럽게 넘어감 */
+      gap: 25px; 
       padding: 0 10px;
     }
     
+    /* 🛠️ 카드 너비를 3분할로 고정하고, 높이는 글자 수에 맞춘 부분 */
     .card { 
       background: #ffffff; 
       border-radius: 16px; 
@@ -25,11 +27,14 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); 
       transition: transform 0.25s ease; 
       border-top: 6px solid #ffb703; 
-      display: inline-block; /* Essential for column-count layout */
-      width: 100%; /* Spans full width of its column */
-      margin-bottom: 30px; /* Vertical gap between stacked cards */
-      height: auto; 
+      
+      display: flex;
+      flex-direction: column;
+      width: calc(33.333% - 17px); /* 화면 넓이에 맞춰 무조건 3등분 */
+      min-width: 320px;            /* 모바일에서 너무 찌그러지지 않게 방지 */
+      height: fit-content;          /* 카드 1이 길어져도 다른 카드는 안 길어짐 */
     }
+    
     .card:hover { transform: translateY(-6px); }
     .card h2 { font-size: 1.35rem; color: #0b3c78; margin-bottom: 8px; }
     .card h3 { font-size: 1rem; font-weight: 500; color: #ff8c00; margin-bottom: 15px; }
@@ -50,30 +55,28 @@
     .math-text { font-weight: bold; color: #0b3c78; word-break: break-all; }
     .ul-title { text-decoration: underline; text-underline-offset: 3px; font-weight: bold; color: #0b3c78; }
     
-    /* Responsive breakpoints for clean layout scaling */
-    @media (max-width: 1100px) {
-      .grid { column-count: 2; } /* 2 columns on medium screens */
-    }
+    /* 모바일 환경에서는 1줄로 나오게 세팅 */
     @media (max-width: 750px) { 
       h1 { font-size: 2rem; } 
-      .grid { column-count: 1; } /* 1 column on mobile/small screens */
+      .card { width: 100%; } /* 모바일에선 꽉 차게 */
       .iframe-box { height: 240px; }
     }
   </style>
 
-
+</head>
+<body>
 
   <h1>Daily Life in Sunway</h1>
 
   <div class="grid">
-         <!-- CARD 1: Ramyeon -->
+    
+    <!-- CARD 1: Ramyeon -->
     <div class="card">
       <h2>Ramyeon-sinusoidal function</h2>
       <h3>A Sinusoidal function</h3>
       <div class="iframe-box">
-        <!-- 오작동하던 아이프레임 링크 완벽 복구 -->
-        <iframe src="https://www.desmos.com/calculator/sbzazg7nh8?embed" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
-        <a href="https://www.desmos.com/calculator/sbzazg7nh8" target="_blank" class="iframe-link"></a>
+        <iframe src="https://desmos.com" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
+        <a href="https://desmos.com" target="_blank" class="iframe-link"></a>
       </div>
       <p>
         <strong>Choice of Image & Parent Function:</strong><br>
@@ -103,19 +106,15 @@
         <strong>Comparison with Parent Function:</strong><br>
         Compared to the parent function <span class="math-text">y=sin(x)</span>—which has an amplitude of 1, a period of 2π, a midline at y=0, and passes through the origin (0,0) moving upwards—this transformed model is vertically stretched, flows in the opposite horizontal direction due to the y-axis reflection, and has been shifted both horizontally and vertically into the fourth quadrant to accurately mimic the physical structure of the ramyeon.
       </p>
-    </div>
-
-
-      </p>
-    </div>
+    </div> <!-- 짝이 안 맞던 카드 1 닫는 태그 완벽 수정 -->
 
     <!-- CARD 2: Sculpture -->
     <div class="card">
       <h2>Sculpture-secant function</h2>
       <h3>A Secant function</h3>
       <div class="iframe-box">
-        <iframe src="https://www.desmos.com/calculator/v9lpukqage?embed" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
-        <a href="https://www.desmos.com/calculator/v9lpukqage" target="_blank" class="iframe-link"></a>
+        <iframe src="https://desmos.com" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
+        <a href="https://desmos.com" target="_blank" class="iframe-link"></a>
       </div>
       <p>
         <strong>Parent Function:</strong> <span class="math-text">y = secx</span><br><br>
@@ -129,15 +128,15 @@
         <strong>Domain:</strong> The domain of my function is <span class="math-text">{x&isin;&Real;&nbsp;|&nbsp;7-&pi; &lt; x &lt; 7+&pi;}</span>, (which simplifies from <span class="math-text">-&pi;/2 &lt; -0.5(x-7) &lt; &pi;/2</span>). I restricted the model to this interval to capture exactly one continuous U-shaped branch of the secant function. Outside of this interval, the graph would create repeated branches and vertical asymptotes that do not exist on the real sculpture.<br>
         <strong>Range:</strong> By evaluating the function at the lowest point of the curve (x = 7), I obtained the minimum y-value of 0.354 since <span class="math-text">1.77(sec(0) - 0.8) = 1.77(1 - 0.8) = 0.354</span>. As the graph approaches the boundaries of the domain, the y-values increase infinitely toward positive infinity. Therefore, the theoretical range is <span class="math-text">{y&isin;&Real;&nbsp;|&nbsp;y &ge; 0.354}</span>.
       </p>
-    </div>
+    </div> <!-- 카드 2 끝 -->
 
     <!-- CARD 3: Bookshelf -->
     <div class="card">
       <h2>Bookshelf-inverse square function</h2>
       <h3>An Inverse square function</h3>
       <div class="iframe-box">
-        <iframe src="https://www.desmos.com/calculator/23odxatgam?embed" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
-        <a href="https://www.desmos.com/calculator/23odxatgam" target="_blank" class="iframe-link"></a>
+        <iframe src="https://desmos.com" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
+        <a href="https://desmos.com" target="_blank" class="iframe-link"></a>
       </div>
       <p>
         <strong>Parent function:</strong> <span class="math-text">y = 1/x<sup>2</sup></span><br><br>
@@ -149,119 +148,8 @@
         <strong>Domain:</strong> The domain of my function is <span class="math-text">{x&isin;&Real;&nbsp;|&nbsp;-6 &lt; x &lt; 6}, x&ne;0</span> because I restricted the model to the section of the bookshelf that is visible in the photograph. Outside of this interval, the graph would represent parts of the bookshelf that are not shown, so the model would no longer reflect the real situation. Additionally, x = 0 is excluded because the function is undefined at this point.<br>
         <strong>Range:</strong> By evaluating the function at the endpoints of the domain (x = &plusmn;6), I obtained the minimum y-value of approximately 0.233. As x approaches 0, the y-value increases infinitely. However, because I restricted the model to the physical boundaries of the photograph, the upper bound is capped at 8. Therefore, the range of the function is <span class="math-text">{y&isin;&Real;&nbsp;|&nbsp;0.233 &le; y &lt; 8}</span>.
       </p>
-    </div>
-    
-        <!-- CARD 4 -->
-    <div class="card">
-      <h2>Title for Card 4</h2>
-      <h3>Function Type</h3>
-      <div class="iframe-box">
-        <!-- 1. 데스모스 공유 버튼 -> Embed 링크 주소를 src에 넣으세요 -->
-        <iframe src="https://desmos.com" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
-        <!-- 2. 클릭 시 새 창으로 열릴 일반 데스모스 주소를 href에 넣으세요 -->
-        <a href="https://desmos.com" target="_blank" class="iframe-link"></a>
-      </div>
-      <p>
-        <strong>Parent Function:</strong> <span class="math-text">y = f(x)</span><br><br>
-        <strong>Transformation:</strong><br>
-        Here is where you write how the function transformed. talk about stretch, reflection, or translation.<br><br>
-        <strong>Domain and Range:</strong><br>
-        <strong>Domain:</strong> <span class="math-text">{x∈ℝ│...}</span> because...<br>
-        <strong>Range:</strong> <span class="math-text">{y∈ℝ│...}</span> because...
-      </p>
-    </div> <!-- 카드 4 끝 -->
+    </div> <!-- 카드 3 끝 -->
 
-    <!-- CARD 5 -->
-    <div class="card">
-      <h2>Title for Card 5</h2>
-      <h3>Function Type</h3>
-      <div class="iframe-box">
-        <iframe src="https://desmos.com" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
-        <a href="https://desmos.com" target="_blank" class="iframe-link"></a>
-      </div>
-      <p>
-        <strong>Parent Function:</strong> <span class="math-text">y = f(x)</span><br><br>
-        <strong>Transformation:</strong><br>
-        Here is where you write how the function transformed. talk about stretch, reflection, or translation.<br><br>
-        <strong>Domain and Range:</strong><br>
-        <strong>Domain:</strong> <span class="math-text">{x∈ℝ│...}</span> because...<br>
-        <strong>Range:</strong> <span class="math-text">{y∈ℝ│...}</span> because...
-      </p>
-    </div> <!-- 카드 5 끝 -->
-
-    <!-- CARD 6 -->
-    <div class="card">
-      <h2>Title for Card 6</h2>
-      <h3>Function Type</h3>
-      <div class="iframe-box">
-        <iframe src="https://desmos.com" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
-        <a href="https://desmos.com" target="_blank" class="iframe-link"></a>
-      </div>
-      <p>
-        <strong>Parent Function:</strong> <span class="math-text">y = f(x)</span><br><br>
-        <strong>Transformation:</strong><br>
-        Here is where you write how the function transformed. talk about stretch, reflection, or translation.<br><br>
-        <strong>Domain and Range:</strong><br>
-        <strong>Domain:</strong> <span class="math-text">{x∈ℝ│...}</span> because...<br>
-        <strong>Range:</strong> <span class="math-text">{y∈ℝ│...}</span> because...
-      </p>
-    </div> <!-- 카드 6 끝 -->
-
-    <!-- CARD 7 -->
-    <div class="card">
-      <h2>Title for Card 7</h2>
-      <h3>Function Type</h3>
-      <div class="iframe-box">
-        <iframe src="https://desmos.com" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
-        <a href="https://desmos.com" target="_blank" class="iframe-link"></a>
-      </div>
-      <p>
-        <strong>Parent Function:</strong> <span class="math-text">y = f(x)</span><br><br>
-        <strong>Transformation:</strong><br>
-        Here is where you write how the function transformed. talk about stretch, reflection, or translation.<br><br>
-        <strong>Domain and Range:</strong><br>
-        <strong>Domain:</strong> <span class="math-text">{x∈ℝ│...}</span> because...<br>
-        <strong>Range:</strong> <span class="math-text">{y∈ℝ│...}</span> because...
-      </p>
-    </div> <!-- 카드 7 끝 -->
-
-    <!-- CARD 8 -->
-    <div class="card">
-      <h2>Title for Card 8</h2>
-      <h3>Function Type</h3>
-      <div class="iframe-box">
-        <iframe src="https://desmos.com" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
-        <a href="https://desmos.com" target="_blank" class="iframe-link"></a>
-      </div>
-      <p>
-        <strong>Parent Function:</strong> <span class="math-text">y = f(x)</span><br><br>
-        <strong>Transformation:</strong><br>
-        Here is where you write how the function transformed. talk about stretch, reflection, or translation.<br><br>
-        <strong>Domain and Range:</strong><br>
-        <strong>Domain:</strong> <span class="math-text">{x∈ℝ│...}</span> because...<br>
-        <strong>Range:</strong> <span class="math-text">{y∈ℝ│...}</span> because...
-      </p>
-    </div> <!-- 카드 8 끝 -->
-
-    <!-- CARD 9 -->
-    <div class="card">
-      <h2>Title for Card 9</h2>
-      <h3>Function Type</h3>
-      <div class="iframe-box">
-        <iframe src="https://desmos.com" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
-        <a href="https://desmos.com" target="_blank" class="iframe-link"></a>
-      </div>
-      <p>
-        <strong>Parent Function:</strong> <span class="math-text">y = f(x)</span><br><br>
-        <strong>Transformation:</strong><br>
-        Here is where you write how the function transformed. talk about stretch, reflection, or translation.<br><br>
-        <strong>Domain and Range:</strong><br>
-        <strong>Domain:</strong> <span class="math-text">{x∈ℝ│...}</span> because...<br>
-        <strong>Range:</strong> <span class="math-text">{y∈ℝ│...}</span> because...
-      </p>
-    </div> <!-- 카드 9 끝 -->
-
-    
   </div> <!-- 그리드 끝 -->
 
 </body>
