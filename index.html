@@ -117,26 +117,33 @@
         <a href="https://www.desmos.com/calculator/v9lpukqage" target="_blank" class="iframe-link"></a>
       </div>
       <p>
-        <strong>Choice of Image & Parent Function:</strong><br>
-To model the symmetrical, flared structural curve of a modern bookshelf design captured on campus, I chose the inverse square function, y=1/x^2, as my parent function. This function is perfectly suited because it features two symmetric branches that flare upward symmetrically toward a vertical asymptote at x=0, closely mimicking the sweeping vertical contours of the bookshelf dividers.<br><br>
+        rong>Choice of Image & Parent Function:</strong><br>
+To model a smooth, U-shaped curving structure found on a campus sculpture, I selected the standard secant function, y=sec(x), as my parent function. While a standard quadratic parabola could approximate a U-shape, the physical sculpture displays a distinct, rapid flare outward as it rises, which perfectly mirrors the geometric behavior of a secant curve as it approaches its vertical asymptotes.<br><br>
         
         <strong>Equation and Order of Transformations:</strong><br>
-        To precisely match the parent function to the physical scaling and placement of the bookshelf structure in the photograph, I applied transformations in the following mathematical order.<br><br>
+ To accurately map the parent function onto the specific proportions, curvature, and position of the sculpture within the photograph, I applied transformations in the following strict mathematical order.<br><br>
         
-        <span class="ul-title">Vertical Stretch (Amplitude):</span> I multiplied the rational expression by a factor of 1.2. This vertically stretches the graph, altering the steepness of the curve to perfectly track the vertical slope of the shelf.<br><br>
+        <span class="ul-title">Vertical Stretch (Amplitude):</span> I multiplied the parent function by a factor of 1.77 to vertically stretch the curve, adjusting its vertical rate of opening to match the depth of the sculpture's U-shape.<br><br>
         
-        <span class="ul-title">Vertical Translation:</spanI shifted the entire graph upwards by 0.2 units to align the horizontal base of the function with the physical baseline coordinates of the furniture in the image.<br><br>
-<strong>Final Transformed Equation: y=1.2/x^2+0.2</strong><br
+        <span class="ul-title"> Horizontal Stretch:</span> I multiplied the x-input by a coefficient of 0.5. Because the horizontal scale factor is the reciprocal of this coefficient (1/0.5), the graph is horizontally stretched by a factor of 2, widening the wave to match the physical width of the sculpture.<br><br>
+
+<span class="ul-title"> Horizontal Reflection:</span> I multiplied the horizontal input by -1. This reflects the graph horizontally across the y-axis. (Because sec(x) is an even function, sec(θ)=sec(-θ), this reflection visually preserves the symmetrical path of the curve).<br><br>
+<span class="ul-title"> Horizontal Phase Shift:</span> I translated the graph 7 units to the right to position the vertex of the curve exactly over the horizontal center of the sculpture.
+<span class="ul-title">  Vertical Translation:</span> Inside the bracket, a baseline shift of -0.8 was applied. When distributed by the vertical stretch factor (1.77*(-0.8)), the entire graph is translated exactly 1.416 units downward, perfectly positioning the base of the curve onto the image coordinates.
+<strong>Final Transformed Equation: y=1.77(sec(-0.5(x-7))-0.8)</strong><br
         <strong>Domain and Range Analysis:</strong><br>
-        <strong>Domain:</strong> <span class="math-text"> D = {x∈ℝ│-6 ≤ x ≤ 6,x≠0}</span><br>
-I restricted the horizontal boundaries of the model to the interval [-6,6] because this captures the exact portion of the bookshelf visible within the frame of the photograph. Extending the domain beyond these points would map onto empty space, making the model unrealistic. Furthermore, x=0 is strictly excluded from the domain because division by zero is mathematically undefined, creating a natural vertical asymptote where the two sides of the shelf partition meet.<br><br>
+        <strong>Domain:</strong> <span class="math-text"> D = {x∈ℝ│7- π< x < 7 + π}</span><br>
+The natural domain of a secant function contains infinite branches separated by vertical asymptotes. To capture exactly one continuous, single U-shaped branch that corresponds to the real sculpture, I restricted the input interval to – π/2, -0.5(x-7)< π/2.Solving this inequality yields 7- π < x <7+ π. Restricting the domain to these strict inequality endpoints ensures that repeated branches and non-existent vertical asymptotes do not appear in the open space of the photograph.<br><br>
         
-        <strong>Range:</strong> <span class="math-text">R = {y∈ℝ│0.233 ≤ y ≤ 8}</span><br>
-The lower bound of the range is found by evaluating the function at its furthest horizontal endpoints (x=±6). Placed into the equation, y=1.2/(±6)^2+0.2=1.2/3.6+0.2=0.233. As x approaches the central asymptote (x to 0), the y-values climb toward positive infinity. However, because the physical bookshelf and the photograph frame terminate vertically, the upper bound is realistically capped at a maximum height of y=8.</span>.<br><br>
+        <strong>Range:</strong> <span class="math-text">R = {y∈ℝ│y ≥ 0.354}</span><br>
+The vertical boundary of this secant branch is determined by finding its absolute minimum point (the vertex of the U-shape). By evaluating the transformed function at its axis of symmetry (x=7), the minimum value is calculated directly:<br><br>
+y=1.77(sec(-0.5(7-7))-0.8)=1.77(sec(0)-8)<br><br>
+Since sec(0)=1, this simplifies to 1.77(1-0.8). As the graph moves outward from this vertex toward the boundaries of its restricted domain (x to 7± π), the y-values increase infinitely toward positive infinity. Thus, the range is bounded below by 0.354.</span>.<br><br>
 
         <strong>Comparison with Parent Function:</strong><br>
-Compared to the baseline parent function y=1/x^2—which has a horizontal asymptote at y=0, a vertical asymptote at x=0, and passes through the reference points (-1,1) and (1,1)—this transformed model has a modified horizontal asymptote shifted upward to y=0.2. It also features a narrower, more accelerated vertical ascent due to the stretch factor of 1.2, adjusting its coordinates to fit the physical framework of the furniture perfectly.
+Compared to the parent function y=secx—which has a local minimum at (0,1), vertical asymptotes at x=± π/2, and a period of 2π—this model is significantly wider and taller due to a horizontal stretch of factor 2 and a vertical stretch of 1.77. Furthermore, its entire framework has been shifted 7 units to the right and lowered down into the first quadrant, shifting its local minimum from (0,1) to (7,0.354) to seamlessly trace the sculpture's silhouette.
       </p>
+
 
     </div> <!-- 카드 2 끝 -->
 
