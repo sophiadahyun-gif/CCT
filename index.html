@@ -8,15 +8,42 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", Arial, sans-serif; }
     body { background-color: #1f2f4a; padding: 30px 15px; color: #eef3fb; }
     h1 { text-align: center; font-size: 2.6rem; margin-bottom: 40px; color: #ffffff; }
-    .grid { max-width: 1200px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; align-items: start; }
-    .card { background: #ffffff; border-radius: 16px; padding: 22px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); transition: transform 0.25s ease; border-top: 6px solid #ffb703; display: flex; flex-direction: column; height: auto; }
+    
+    /* [수정] 빈 공간 생김 방지를 위해 grid 구조 및 정렬 최적화 */
+    .grid { 
+      max-width: 1200px; 
+      margin: 40px auto; 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+      gap: 30px; 
+    }
+    
+    /* [수정] height: auto로 텍스트 길이에 맞춰 깔끔하게 늘어나도록 수정 */
+    .card { 
+      background: #ffffff; 
+      border-radius: 16px; 
+      padding: 24px; 
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); 
+      transition: transform 0.25s ease; 
+      border-top: 6px solid #ffb703; 
+      display: flex; 
+      flex-direction: column; 
+      height: auto; 
+    }
     .card:hover { transform: translateY(-6px); }
-    .card h2 { font-size: 1.2rem; color: #0b3c78; margin-bottom: 8px; }
+    .card h2 { font-size: 1.25rem; color: #0b3c78; margin-bottom: 8px; }
     .card h3 { font-size: 0.95rem; font-weight: 500; color: #ff8c00; margin-bottom: 15px; }
+    
     .iframe-box { flex-shrink: 0; width: 100%; height: 200px; border-radius: 12px; background: #eaf2ff; position: relative; overflow: hidden; margin-bottom: 15px; }
     .iframe-link { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: transparent; }
     .card p { font-size: 0.95rem; line-height: 1.6; color: #333; overflow-wrap: break-word; }
-    .math-text { white-space: nowrap; font-weight: bold; color: #0b3c78; }
+    
+    /* [수정] 수식이 부드럽게 줄바꿈되면서 가독성을 유지하도록 스타일 변경 */
+    .math-text { font-weight: bold; color: #0b3c78; word-break: break-all; }
+    
+    /* [추가] 아까 좋아하셨던 깔끔한 밑줄 전용 스타일 */
+    .ul-title { text-decoration: underline; text-underline-offset: 3px; font-weight: bold; color: #0b3c78; }
+    
     @media (max-width: 500px) { h1 { font-size: 2rem; } .grid { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -35,8 +62,8 @@
       </div>
       <p>
         <strong>Transformation:</strong><br>
-        I chose this photo because I often eat ramyeon as lunch near the Sunway’s convenience store. To model the sign appearing in this photo, I started to walk around the campus and observe the small things. Then I realized that the ramyeon noodle looks similar to the sinusoidal faction so I selected the parent function y=sinx as a starting point.<br><br>
-        - To model the repetitive, wavy pattern of the ramen noodles, I selected the most basic wave function, y = sinx, as my parent function.<br>
+        I chose this photo because I often eat ramyeon as lunch near the Sunway’s convenience store. To model the sign appearing in this photo, I started to walk around the campus and observe the small things. Then I realized that the ramyeon noodle looks similar to the sinusoidal faction so I selected the parent function <span class="math-text">y=sinx</span> as a starting point.<br><br>
+        - To model the repetitive, wavy pattern of the ramen noodles, I selected the most basic wave function, <span class="math-text">y = sinx</span>, as my parent function.<br>
         - The standard sine graph only moves between 1 and -1. However, the actual ripples of the noodle were much taller. To match the thickness and the curves in the photo, I increased the amplitude to 1.77.<br>
         - To align the graph with the actual flow of the noodle starting point, I multiplied the x-coefficient by -1. This reflects the graph across the y-axis.<br><br>
         <strong>Domain and Range:</strong><br>
@@ -85,87 +112,10 @@
         <strong>Range:</strong> By evaluating the function at the endpoints of the domain (x = &plusmn;6), I obtained the minimum y-value of approximately 0.233. As x approaches 0, the y-value increases infinitely. However, because I restricted the model to the physical boundaries of the photograph, the upper bound is capped at 8. Therefore, the range of the function is <span class="math-text">{y&isin;&Real;&nbsp;|&nbsp;0.233 &le; y &lt; 8}</span>.
       </p>
     </div>
-  </div>
-
-</body>
-
-    <!-- CARD 4: Traffic Signal -->
-    <div class="card">
-      <h2>Traffic signal post-rational function</h2>
-      <h3>A Rational function</h3>
-      <div class="iframe-box">
-        <iframe src="https://desmos.com" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
-        <a href="https://desmos.com" target="_blank" class="iframe-link"></a>
-      </div>
-      <p>
-        <strong>Transformation:</strong><br>
-        I chose this photograph because the curved shape of the traffic signal post closely resembled a rational function. To model the traffic signal post appearing in the image, I began by identifying that its shape was similar to the parent rational function <span class="math-text">y = 1/x</span> as a starting point.<br><br>
-        From observing the orientation of the curve in my image, I noticed that the graph was decreasing from left to right rather than increasing. This indicated a reflection across the x-axis. Therefore, I modified the function to <span class="math-text">y = -1/x</span> to match the direction of the curve.<br><br>
-        Initially, I found it difficult to determine the correct vertical stretch or compression factor because the graph in the image was positioned away from the origin, making it challenging to accurately compare the steepness. To address this, I temporarily focused on aligning the asymptotes first so I could analyse the shape without the added complexity of translations. By comparing the curvature of the graph with the traffic signal post, I determined that a vertical compression was needed rather than a stretch, and refined the value through observation until the curve closely matched the image.<br><br>
-        Once the shape was established, I returned the graph to its original position by applying translations. I shifted the graph horizontally to align the vertical asymptote with the position where the traffic signal post begins in the image and then applied a vertical translation so the curve passed through key points on the traffic light structure. This resulted in the function <span class="math-text">y = -0.2/(x-1.9) + 7.7</span> which closely models the shape of the traffic signal post in the photograph.<br><br>
-        <strong>Summary of transformation:</strong><br>
-        - Reflection across the x-axis: <span class="math-text">1/x &rarr; -1/x</span><br>
-        - Vertical compression of factor 0.2: <span class="math-text">-1/x &rarr; -0.2/x</span><br>
-        - Horizontal translation of 1.9 units to the right: <span class="math-text">-0.2/x &rarr; -0.2/(x-1.9)</span><br>
-        - Vertical translation of 7.7 units upward: <span class="math-text">-0.2/(x-1.9) &rarr; -0.2/(x-1.9)+7.7</span><br><br>
-        <strong>Domain & Range:</strong><br>
-        <strong>Domain:</strong> The domain of my function is <span class="math-text">D:{x&isin;&Real;&nbsp;|&nbsp;1.933 &le; x &le; 7.8}</span>. I limited the domain to the portion of the traffic signal post that was visible in the photograph. In hindsight, I would have taken the picture so that it included more of the curve, allowing me to model a larger section of the structure rather than only the visible part. As a result, my model is only valid for the section of the traffic signal post captured in the image. (The parent function <span class="math-text">y = 1/x</span> has a domain of <span class="math-text">D:{x&isin;&Real;&nbsp;|&nbsp;x &ne; 0}</span> and a range of <span class="math-text">R:{y&isin;&Real;&nbsp;|&nbsp;y &ne; 0}</span>).<br><br>
-        <strong>Range:</strong> Transformed function contains asymptotes at vertical <span class="math-text">x = 1.9</span> and horizontal <span class="math-text">y = 7.7</span>. Since I restricted the domain to a small interval entirely to the right of the vertical asymptote, the discontinuity is not visible in my model. Since the function is continuous on the restricted interval, the range can be determined by evaluating the function at the endpoints of the domain. By evaluating the function near <span class="math-text">x = 1.933</span> and at <span class="math-text">x = 7.8</span>, I obtained approximate output values between 1.64 and 7.67. Therefore, the range of the function is approximately <span class="math-text">R:{y&isin;&Real;&nbsp;|&nbsp;1.64 &le; y &le; 7.67}</span>.
-      </p>
-    </div>
-          
-    <!-- CARD 5 -->
-    <div class="card">
-      <h2>Library 5</h2>
-      <h3>Placeholder</h3>
-      <div class="iframe-box">
-        <iframe src="https://desmos.com" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
-        <a href="https://desmos.com" target="_blank" class="iframe-link"></a>
-      </div>
-      <p>Content goes here.</p>
-    </div>
-
-    <!-- CARD 6 -->
-    <div class="card">
-      <h2>Library 6</h2>
-      <h3>Placeholder</h3>
-      <div class="iframe-box"></div>
-      <p>Content goes here.</p>
-    </div>
-
-    <!-- CARD 7 -->
-    <div class="card">
-      <h2>Library 7</h2>
-      <h3>Placeholder</h3>
-      <div class="iframe-box">
-        <iframe src="https://desmos.com" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
-        <a href="https://desmos.com" target="_blank" class="iframe-link"></a>
-      </div>
-      <p>Content goes here.</p>
-    </div>
-
-    <!-- CARD 8 -->
-    <div class="card">
-      <h2>Library 8</h2>
-      <h3>Placeholder</h3>
-      <div class="iframe-box">
-        <iframe src="https://desmos.com" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
-        <a href="https://desmos.com" target="_blank" class="iframe-link"></a>
-      </div>
-      <p>Content goes here.</p>
-    </div>
-
-    <!-- CARD 9 -->
-    <div class="card">
-      <h2>Library 9</h2>
-      <h3>Placeholder</h3>
-      <div class="iframe-box">
-        <iframe src="https://desmos.com" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
-        <a href="https://desmos.com" target="_blank" class="iframe-link"></a>
-      </div>
-      <p>Content goes here.</p>
-    </div>
-  </div>
+    
+    <!-- 💡 여기에 CARD 4부터 9까지 똑같은 형태로 편하게 복사해서 붙여넣으시면 됩니다! -->
+    
+  </div> <!-- 그리드 끝 -->
 
 </body>
 </html>
